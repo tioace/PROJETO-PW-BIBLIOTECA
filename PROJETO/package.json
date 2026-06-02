@@ -1,7 +1,7 @@
 {
-  "name": "projeto---biblioteca",
+  "name": "projeto",
   "version": "1.0.0",
-  "description": "projeto de gerenciamento de uma biblioteca",
+  "description": "projeto de gestão de biblioteca da materia de programacao web",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
