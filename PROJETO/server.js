@@ -2,7 +2,10 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path')
-const apiRoute = require('./routes/api');
+
+const usuarioRoute = require('./routes/usuario');
+const livroRoute = require('./routes/livro');
+const emprestimoRoute = require('./routes/emprestimo');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -12,7 +15,10 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.json()); 
-app.use('/api/livro', apiRoute);
+
+app.use('/usuario', usuarioRoute);
+app.use('/livro', livroRoute);
+app.use('/emprestimo', emprestimoRoute);
 
 app.listen(port, () => {
   console.log(`Servidor funcionando ${port}`)
