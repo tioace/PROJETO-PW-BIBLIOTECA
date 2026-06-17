@@ -157,13 +157,8 @@ async function carregarEmprestimos() {
         tbody.innerHTML = emprestimos.map(emp => {
             const statusLabel = statusMap[emp.status] || emp.status;
 
-<<<<<<< HEAD
-            // Aprovar: aparece se estiver devolucao_solicitada
+
             const podeAprovar = ['devolucao_solicitada'].includes(emp.status);
-=======
-            
-            const podeAprovar = ['ativo', 'atrasado', 'devolucao_solicitada'].includes(emp.status);
->>>>>>> 9816d0117d9a64d91a98486f5b75ec131bd4fa74
 
         
             const podeDesaprovar = emp.status === 'devolucao_solicitada';
