@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('../db');
 const { exigirPerfil } = require('../middlewares/auth');
 
-//Cadastra o livro apenas bibliotecário
 router.post('/cadastrar', exigirPerfil('bibliotecario'), (req, res) => {
     const { titulo, autor, ano_publicacao, quantidade_disponivel } = req.body;
 
@@ -27,7 +26,7 @@ router.post('/cadastrar', exigirPerfil('bibliotecario'), (req, res) => {
     );
 });
 
-//Lista os livros
+
 router.get('/listar', (req, res) => {
     db.query('select * from livro order by id_livro desc', (err, results) => {
         if (err) return res.status(500).json({ erro: err.message });
@@ -35,7 +34,7 @@ router.get('/listar', (req, res) => {
     });
 });
 
-//Busca o livro por id
+
 router.get('/:id', (req, res) => {
     const { id } = req.params;
     db.query('select * from livro where id_livro = ?', [id], (err, results) => {
@@ -45,7 +44,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//Atualiza o livro apenas bibliotecário
+
 router.put('/:id', exigirPerfil('bibliotecario'), (req, res) => {
     const { id } = req.params;
     const { titulo, autor, ano_publicacao, quantidade_disponivel } = req.body;
@@ -70,7 +69,7 @@ router.put('/:id', exigirPerfil('bibliotecario'), (req, res) => {
     );
 });
 
-//Deleta o livro apenas bibliotecário
+
 router.delete('/:id', exigirPerfil('bibliotecario'), (req, res) => {
     const { id } = req.params;
     db.query('DELETE FROM livro WHERE id_livro = ?', [id], (err) => {

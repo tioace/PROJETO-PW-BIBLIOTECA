@@ -1,6 +1,5 @@
 const db = require('../db');
 
-//Middleware que controla as permissões dos usuários, permitindo que apenas bibliotecários gerenciem livros e apenas leitores solicitem empréstimos
 function exigirPerfil(perfilExigido) {
     return (req, res, next) => {
         const idUsuario = req.header('x-usuario-id');

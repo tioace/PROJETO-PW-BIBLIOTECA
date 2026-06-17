@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarLivros();
 });
 
-//NAVEGAÇÃO 
+
 function mostrarSecao(secao, el) {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('ativo'));
     if (el) el.classList.add('ativo');
@@ -29,7 +29,7 @@ function mostrarSecao(secao, el) {
     }
 }
 
-//CATÁLOGO
+
 async function carregarLivros() {
     try {
         const livros = await apiRequest('/livro/listar');
@@ -74,7 +74,7 @@ async function solicitarEmprestimo(id_livro) {
     }
 }
 
-//MEUS EMPRÉSTIMOS 
+ 
 async function carregarMeusEmprestimos() {
     const tbody = document.getElementById('tbody-emprestimos');
     tbody.innerHTML = '<tr><td colspan="7" style="text-align:center">Carregando...</td></tr>';

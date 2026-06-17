@@ -13,7 +13,7 @@ function calcularDataPrevista(dias = 14) {
     return data.toISOString().split('T')[0];
 }
 
-//Marca como 'atrasado' qualquer empréstimo ativo cuja data prevista já tenha passado
+
 function marcarAtrasados(callback) {
     db.query(
         `UPDATE emprestimo SET status = 'atrasado'
@@ -22,7 +22,7 @@ function marcarAtrasados(callback) {
     );
 }
 
-//Registra os empréstimo 
+ 
 router.post('/cadastrar', exigirPerfil('leitor'), (req, res) => {
     const { id_livro, id_usuario } = req.body;
 
@@ -60,7 +60,7 @@ router.post('/cadastrar', exigirPerfil('leitor'), (req, res) => {
     });
 });
 
-//Lista todos os empréstimos 
+
 router.get('/listar', (req, res) => {
     marcarAtrasados((err) => {
         if (err) return res.status(500).json({ erro: err.message });
@@ -79,7 +79,7 @@ router.get('/listar', (req, res) => {
     });
 });
 
-//Lista os empréstimos de um usuário 
+
 router.get('/usuario/:id', (req, res) => {
     const { id } = req.params;
     marcarAtrasados((err) => {
@@ -100,7 +100,7 @@ router.get('/usuario/:id', (req, res) => {
     });
 });
 
-// Solicita a devolução 
+
 router.put('/solicitar-devolucao/:id', exigirPerfil('leitor'), (req, res) => {
     const { id } = req.params;
 
@@ -126,7 +126,7 @@ router.put('/solicitar-devolucao/:id', exigirPerfil('leitor'), (req, res) => {
     });
 });
 
-//Desaprova a devolução 
+
 router.put('/desaprovar-devolucao/:id', exigirPerfil('bibliotecario'), (req, res) => {
     const { id } = req.params;
 
@@ -148,7 +148,7 @@ router.put('/desaprovar-devolucao/:id', exigirPerfil('bibliotecario'), (req, res
     });
 });
 
-//Aprova a devolução 
+
 router.put('/devolver/:id', exigirPerfil('bibliotecario'), (req, res) => {
     const { id } = req.params;
 
@@ -178,7 +178,7 @@ router.put('/devolver/:id', exigirPerfil('bibliotecario'), (req, res) => {
     });
 });
 
-//Exclui o empréstimo 
+
 router.delete('/:id', exigirPerfil('bibliotecario'), (req, res) => {
     const { id } = req.params;
 

@@ -12,7 +12,7 @@ function limparSessao() {
     localStorage.removeItem('usuario');
 }
 
-//Garante que o usuário está logado e com o perfil esperado
+
 function exigirAutenticacao(perfilEsperado) {
     const usuario = obterUsuario();
 
@@ -55,7 +55,7 @@ async function apiRequest(endpoint, { method = 'GET', body = null } = {}) {
     return dados;
 }
 
-//Exibição da mensagens 
+ 
 function exibirMensagem(elementoId, texto, tipo = 'erro') {
     const el = document.getElementById(elementoId);
     if (!el) return;
@@ -68,7 +68,7 @@ function exibirMensagem(elementoId, texto, tipo = 'erro') {
     }, 5000);
 }
 
-//Logout 
+
 function configurarLogout() {
     const btn = document.getElementById('btn-logout');
     if (btn) {
@@ -79,7 +79,7 @@ function configurarLogout() {
     }
 }
 
-//Utilitários da data 
+
 function formatarData(dataStr) {
     if (!dataStr) return '-';
     const data = new Date(dataStr);
