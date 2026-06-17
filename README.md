@@ -8,7 +8,7 @@ cada um com permissões distintas sobre o catálogo de livros e os empréstimos.
 
 - **Back-end:** Node.js + Express
 - **Banco de dados:** MySQL (driver `mysql2`)
-- **Front-end:** HTML, CSS e JavaScript puro (sem frameworks)
+- **Front-end:** HTML, CSS e JavaScript 
 
 ## Funcionalidades
 
