@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-//Cadastra os usuario 
+
 router.post('/cadastrar', (req, res) => {
     const { nome, email, senha, perfil } = req.body;
 
@@ -28,7 +28,7 @@ router.post('/cadastrar', (req, res) => {
     });
 });
 
-//Login
+
 router.post('/login', (req, res) => {
     const { email, senha } = req.body;
 
@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
     });
 });
 
-//Lista os usuarios
+
 router.get('/listar', (req, res) => {
     db.query('SELECT id_usuario, nome, email, perfil FROM usuario', (err, results) => {
         if (err) return res.status(500).json({ erro: err.message });
@@ -58,7 +58,6 @@ router.get('/listar', (req, res) => {
     });
 });
 
-//Busca o usuario por id
 router.get('/:id', (req, res) => {
     const { id } = req.params;
     db.query('SELECT id_usuario, nome, email, perfil FROM usuario WHERE id_usuario = ?', [id], (err, results) => {
@@ -68,7 +67,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Deletar usuario
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
     db.query('DELETE FROM usuario WHERE id_usuario = ?', [id], (err) => {

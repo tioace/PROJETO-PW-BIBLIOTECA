@@ -289,7 +289,8 @@ button.btn-small {
     gap: 0.3rem;
 }
 
-/*LAYOUT DOS PAINÉIS — sidebar + main*/
+
+
 .app-layout {
     display: flex;
     width: 100vw;
@@ -439,7 +440,8 @@ button.btn-small {
     flex-shrink: 0;
 }
 
-/*TABELAS*/
+
+
 .tabela-wrap { overflow-x: auto; }
 
 table {
@@ -488,7 +490,8 @@ tbody tr:hover { background: #f6f9ff; }
 
 .escondido { display: none !important; }
 
-/*STATUS*/
+
+
 .status {
     display: inline-block;
     padding: 0.28rem 0.75rem;
@@ -506,9 +509,9 @@ tbody tr:hover { background: #f6f9ff; }
 .status.atrasado             { background: var(--vermelho); }
 .status.devolucao_solicitada { background: var(--amarelo); }
 
-/* =====================================================
-   RESPONSIVO
-   ===================================================== */
+
+
+
 @media (max-width: 900px) {
     .auth-container { flex-direction: column; }
     .auth-aside { flex: 0 0 220px; padding: 2rem; }

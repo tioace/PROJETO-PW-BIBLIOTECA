@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('form-livro').addEventListener('submit', salvarLivro);
 });
 
-//NAVEGAÇÃO
+
 function mostrarSecao(secao) {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('ativo'));
     event.currentTarget.classList.add('ativo');
@@ -31,7 +31,7 @@ function mostrarSecao(secao) {
     }
 }
 
-//LIVROS 
+
 async function carregarLivros() {
     try {
         const livros = await apiRequest('/livro/listar');
@@ -135,7 +135,7 @@ async function excluirLivro(id) {
     }
 }
 
-//EMPRÉSTIMOS
+
 async function carregarEmprestimos() {
     const tbody = document.getElementById('tbody-emprestimos');
     tbody.innerHTML = '<tr><td colspan="7" style="text-align:center">Carregando...</td></tr>';
@@ -157,10 +157,10 @@ async function carregarEmprestimos() {
         tbody.innerHTML = emprestimos.map(emp => {
             const statusLabel = statusMap[emp.status] || emp.status;
 
-            // Aprovar: aparece se estiver ativo, atrasado ou devolucao_solicitada
+            
             const podeAprovar = ['ativo', 'atrasado', 'devolucao_solicitada'].includes(emp.status);
 
-            // Desaprovar: apenas quando os status é devolucao_solicitada — volta para 'ativo'
+        
             const podeDesaprovar = emp.status === 'devolucao_solicitada';
 
             return `
