@@ -34,3 +34,5 @@ create table emprestimo(
 SELECT e.*, u.nome AS nome_usuario, l.titulo AS titulo_livro FROM emprestimo e
 JOIN usuario u ON e.id_usuario = u.id_usuario JOIN livro l ON e.id_livro = l.id_livro;
 
+insert into emprestimo (id_usuario, id_livro, data_emprestimo, data_devolucao_prevista, data_devolucao_real, status) 
+values (2, 1, "02/06/2026", "16/06/2026", "", "atrasado");

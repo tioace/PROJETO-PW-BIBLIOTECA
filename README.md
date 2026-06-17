@@ -29,6 +29,7 @@ cada um com permissões distintas sobre o catálogo de livros e os empréstimos.
 - Apenas usuários com perfil **leitor** podem solicitar empréstimos.
 - A quantidade disponível de um livro é reduzida ao criar um empréstimo e devolvida ao aprovar a devolução (ou ao excluir um empréstimo ainda não devolvido).
 - Um empréstimo é criado com status `ativo`; passa para `atrasado` automaticamente se a data prevista de devolução for ultrapassada; passa para `devolução solicitada` quando o leitor pede a devolução; e para `devolvido` quando o bibliotecário aprova.
+- O empréstimo só passa a ter o status `devolvido` quando o leitor `solicita devolução`, mesmo que ela esteja `ativa` ou `atrasada`
 
 ## Estrutura do projeto
 

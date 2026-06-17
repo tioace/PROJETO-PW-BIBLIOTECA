@@ -107,7 +107,7 @@ async function carregarMeusEmprestimos() {
                     <td><span class="status ${emp.status}">${statusLabel}</span></td>
                     <td>
                         ${podeSolicitar
-                            ? `<button class="btn-small btn-warning" onclick="solicitarDevolucao(${emp.id_emprestimo})">📤 Solicitar Devolução</button>`
+                            ? `<button class="btn-small btn-warning" onclick="solicitarDevolucao(${emp.id_emprestimo})">Solicitar Devolução</button>`
                             : '<span style="color:#aaa;font-size:.82rem;">-</span>'
                         }
                     </td>

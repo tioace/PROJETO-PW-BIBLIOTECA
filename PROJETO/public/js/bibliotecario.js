@@ -51,8 +51,8 @@ async function carregarLivros() {
                 <td>${l.quantidade_disponivel}</td>
                 <td>
                     <div class="acoes-linha">
-                        <button class="btn-small btn-warning" onclick="editarLivro(${l.id_livro})">✏️ Editar</button>
-                        <button class="btn-small btn-danger" onclick="excluirLivro(${l.id_livro})">🗑️ Excluir</button>
+                        <button class="btn-small btn-warning" onclick="editarLivro(${l.id_livro})">Editar</button>
+                        <button class="btn-small btn-danger" onclick="excluirLivro(${l.id_livro})">Excluir</button>
                     </div>
                 </td>
             </tr>
@@ -157,8 +157,8 @@ async function carregarEmprestimos() {
         tbody.innerHTML = emprestimos.map(emp => {
             const statusLabel = statusMap[emp.status] || emp.status;
 
-            // Aprovar: aparece se estiver ativo, atrasado ou devolucao_solicitada
-            const podeAprovar = ['ativo', 'atrasado', 'devolucao_solicitada'].includes(emp.status);
+            // Aprovar: aparece se estiver devolucao_solicitada
+            const podeAprovar = ['devolucao_solicitada'].includes(emp.status);
 
             // Desaprovar: apenas quando os status é devolucao_solicitada — volta para 'ativo'
             const podeDesaprovar = emp.status === 'devolucao_solicitada';
@@ -174,12 +174,12 @@ async function carregarEmprestimos() {
                     <td>
                         <div class="acoes-linha">
                             ${podeAprovar
-                                ? `<button class="btn-small btn-success" onclick="aprovarDevolucao(${emp.id_emprestimo})">✅ Aprovar Dev.</button>`
+                                ? `<button class="btn-small btn-success" onclick="aprovarDevolucao(${emp.id_emprestimo})">Aprovar Dev.</button>`
                                 : ''}
                             ${podeDesaprovar
-                                ? `<button class="btn-small btn-warning" onclick="desaprovarDevolucao(${emp.id_emprestimo})">↩️ Desaprovar</button>`
+                                ? `<button class="btn-small btn-warning" onclick="desaprovarDevolucao(${emp.id_emprestimo})">Desaprovar</button>`
                                 : ''}
-                            <button class="btn-small btn-danger" onclick="excluirEmprestimo(${emp.id_emprestimo})">🗑️ Excluir</button>
+                            <button class="btn-small btn-danger" onclick="excluirEmprestimo(${emp.id_emprestimo})">Excluir</button>
                         </div>
                     </td>
                 </tr>
