@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Bibliotecário</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <div class="marca">
+                <span class="icone-livro">📚</span>
+                <span>Biblioteca</span>
+            </div>
+            <div class="perfil-usuario">
+                <span class="nome" id="sidebar-nome">Carregando...</span>
+                <span class="cargo">Bibliotecário</span>
+            </div>
+            <nav>
+                <div class="nav-item ativo" onclick="mostrarSecao('livros')">📖 Catálogo de Livros</div>
+                <div class="nav-item" onclick="mostrarSecao('emprestimos')">📋 Empréstimos</div>
+            </nav>
+            <button id="btn-logout">🚪 Sair</button>
+        </aside>
+
+        <!--CONTEÚDO PRINCIPAL-->
+        <main class="main-content">
+            <div class="topbar">
+                <h1 id="titulo-secao">Catálogo de Livros</h1>
+                <span class="saudacao">Olá, <strong id="topbar-nome"></strong></span>
+            </div>
+
+            <div id="mensagem" class="mensagem escondido"></div>
+
+            <!--LIVROS-->
+            <div id="secao-livros">
+
+                <!-- Formulário de cadastro/edição de livro -->
+                <div class="card">
+                    <h2 id="titulo-form-livro">Cadastrar Novo Livro</h2>
+                    <form id="form-livro">
+                        <input type="hidden" id="livro-id">
+                        <div class="form-row">
+                            <div>
+                                <label for="livro-titulo">Título</label>
+                                <input type="text" id="livro-titulo" required>
+                            </div>
+                            <div>
+                                <label for="livro-autor">Autor</label>
+                                <input type="text" id="livro-autor" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="livro-ano">Ano de Publicação</label>
+                                <input type="number" id="livro-ano" placeholder="Ex: 1899" min="0" max="2100">
+                            </div>
+                            <div>
+                                <label for="livro-qtd">Quantidade Disponível</label>
+                                <input type="number" id="livro-qtd" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" id="btn-salvar-livro">Cadastrar Livro</button>
+                            <button type="button" id="btn-cancelar-edicao" class="btn-secundario escondido" onclick="cancelarEdicaoLivro()">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Catálogo de livros-->
+                <div class="card">
+                    <h2>Livros Cadastrados</h2>
+                    <div class="tabela-wrap">
+                        <table id="tabela-livros">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Ano de Publicação</th>
+                                    <th>Qtd. Disponível</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-livros">
+                                <tr><td colspan="6">Carregando livros...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--EMPRÉSTIMOS-->
+            <div id="secao-emprestimos" class="escondido">
+                <div class="card">
+                    <h2>Todos os Empréstimos</h2>
+                    <div class="tabela-wrap">
+                        <table id="tabela-emprestimos">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Leitor</th>
+                                    <th>Livro</th>
+                                    <th>Data Empréstimo</th>
+                                    <th>Previsão Devolução</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-emprestimos">
+                                <tr><td colspan="7">Carregando empréstimos...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/bibliotecario.js"></script>
+</body>
+</html>

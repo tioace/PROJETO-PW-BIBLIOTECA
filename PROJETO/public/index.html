@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+
+        <!--painel azul-->
+        <div class="auth-aside">
+            <div class="icone-livro">📚</div>
+            <h2>BEM-VINDO</h2>
+            <h3>Sistema de Biblioteca</h3>
+            <p>Gerencie o acervo, acompanhe os empréstimos e mantenha o controle das devoluções em um só lugar.</p>
+        </div>
+
+        <!-- formulário-->
+        <div class="auth-form-area">
+            <h1>Acesse sua conta</h1>
+            <p class="subtitulo">Entre com seus dados ou crie um novo cadastro.</p>
+
+            <div class="auth-tabs">
+                <button id="tab-login" class="ativo" onclick="mostrarAba('login')">Login</button>
+                <button id="tab-registro" onclick="mostrarAba('registro')">Registro</button>
+            </div>
+
+            <div id="mensagem" class="mensagem escondido"></div>
+
+            <!--LOGIN-->
+            <form id="form-login">
+                <div class="campo-icone">
+                    <label for="login-email">Email</label>
+                    <span class="icone">✉</span>
+                    <input type="email" id="login-email" placeholder="seu@email.com" required>
+                </div>
+                <div class="campo-icone">
+                    <label for="login-senha">Senha</label>
+                    <span class="icone">🔒</span>
+                    <input type="password" id="login-senha" placeholder="••••••••" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+
+            <!--REGISTRO-->
+            <form id="form-registro" class="escondido">
+                <div class="campo-icone">
+                    <label for="registro-nome">Nome</label>
+                    <span class="icone">👤</span>
+                    <input type="text" id="registro-nome" placeholder="Seu nome completo" required>
+                </div>
+                <div class="campo-icone">
+                    <label for="registro-email">Email</label>
+                    <span class="icone">✉</span>
+                    <input type="email" id="registro-email" placeholder="seu@email.com" required>
+                </div>
+                <div class="campo-icone">
+                    <label for="registro-senha">Senha</label>
+                    <span class="icone">🔒</span>
+                    <input type="password" id="registro-senha" placeholder="Mínimo 3 caracteres" required minlength="3">
+                </div>
+                <div>
+                    <label for="registro-perfil">Perfil</label>
+                    <select id="registro-perfil" required>
+                        <option value="leitor">Leitor</option>
+                        <option value="bibliotecario">Bibliotecário</option>
+                    </select>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

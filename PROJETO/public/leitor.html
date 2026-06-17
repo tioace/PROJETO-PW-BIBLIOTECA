@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Leitor</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <div class="marca">
+                <span class="icone-livro">📚</span>
+                <span>Biblioteca</span>
+            </div>
+            <div class="perfil-usuario">
+                <span class="nome" id="sidebar-nome">Carregando...</span>
+                <span class="cargo">Leitor</span>
+            </div>
+            <nav>
+                <div class="nav-item ativo" onclick="mostrarSecao('catalogo', this)">📖 Catálogo</div>
+                <div class="nav-item" onclick="mostrarSecao('meus-emprestimos', this)">📋 Meus Empréstimos</div>
+            </nav>
+            <button id="btn-logout">🚪 Sair</button>
+        </aside>
+
+        <!--CONTEÚDO PRINCIPAL-->
+        <main class="main-content">
+            <div class="topbar">
+                <h1 id="titulo-secao">Catálogo de Livros</h1>
+                <span class="saudacao">Olá, <strong id="topbar-nome"></strong></span>
+            </div>
+
+            <div id="mensagem" class="mensagem escondido"></div>
+
+            <!--CATÁLOGO-->
+            <div id="secao-catalogo">
+                <div class="card">
+                    <h2>Livros Disponíveis</h2>
+                    <div class="tabela-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Ano de Publicação</th>
+                                    <th>Qtd. Disponível</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-livros">
+                                <tr><td colspan="6">Carregando livros...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--MEUS EMPRÉSTIMOS-->
+            <div id="secao-meus-emprestimos" class="escondido">
+                <div class="card">
+                    <h2>Meus Empréstimos</h2>
+                    <div class="tabela-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Livro</th>
+                                    <th>Autor</th>
+                                    <th>Data Empréstimo</th>
+                                    <th>Previsão Devolução</th>
+                                    <th>Status</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-emprestimos">
+                                <tr><td colspan="7">Carregando empréstimos...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/leitor.js"></script>
+</body>
+</html>

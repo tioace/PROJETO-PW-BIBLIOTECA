@@ -24,13 +24,13 @@ create table emprestimo(
     id_usuario int not null, 
     data_emprestimo date not null, 
     data_devolucao_prevista date not null, 
-    data_devolucao_real date not null, 
-    status enum('ativo', 'devolvido') not null,
+    data_devolucao_real date null, 
+    status ENUM('ativo', 'devolvido', 'atrasado', 'devolucao_solicitada') NOT NULL DEFAULT 'ativo',
     foreign key (id_livro) references livro(id_livro), 
     foreign key (id_usuario) references usuario(id_usuario)
 ); 
 
 -- Listar emprestimo --
 SELECT e.*, u.nome AS nome_usuario, l.titulo AS titulo_livro FROM emprestimo e
-JOIN usuario u ON e.id_usuario = u.id_usuario JOIN livro l ON e.id_livro = l.id_livro`
+JOIN usuario u ON e.id_usuario = u.id_usuario JOIN livro l ON e.id_livro = l.id_livro;
 
